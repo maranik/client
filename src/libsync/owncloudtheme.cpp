@@ -38,25 +38,15 @@ ownCloudTheme::ownCloudTheme() :
 
 QString ownCloudTheme::configFileName() const
 {
-    return QLatin1String("owncloud.cfg");
+    return QLatin1String("cloudbag.cfg");
 }
 
 QString ownCloudTheme::about() const
 {
     QString devString;
-    devString = trUtf8("<p>Version %2. For more information visit <a href=\"%3\">%4</a></p>"
-               "<p><small>By Klaas Freitag, Daniel Molkentin, Jan-Christoph Borchardt, "
-               "Olivier Goffart, Markus Götz and others.</small></p>"
-               "<p>Copyright ownCloud, Inc.</p>"
-               "<p>Licensed under the GNU General Public License (GPL) Version 2.0<br/>"
-               "ownCloud and the ownCloud Logo are registered trademarks of ownCloud, "
-               "Inc. in the United States, other countries, or both.</p>"
-               )
-            .arg(MIRALL_VERSION_STRING)
-            .arg("https://" MIRALL_STRINGIFY(APPLICATION_DOMAIN))
-            .arg(MIRALL_STRINGIFY(APPLICATION_DOMAIN));
+    devString = trUtf8("<p>Version %2.</p>"
+               ).arg(MIRALL_VERSION_STRING);
 
-    devString += gitSHA1();
     return devString;
 
 }
@@ -91,7 +81,7 @@ QVariant ownCloudTheme::customMedia(Theme::CustomMediaType type)
 
 QString ownCloudTheme::helpUrl() const
 {
-    return QString::fromLatin1("https://doc.owncloud.org/desktop/%1.%2/").arg(MIRALL_VERSION_MAJOR).arg(MIRALL_VERSION_MINOR);
+    return QString::fromLatin1("https://tnet.it/contatti");
 }
 
 #ifndef TOKEN_AUTH_ONLY
@@ -113,14 +103,18 @@ QPixmap ownCloudTheme::wizardHeaderLogo() const
 
 QString ownCloudTheme::appName() const
 {
-    return QLatin1String("ownCloud");
+    return QLatin1String("CloudBag");
 }
 
 QString ownCloudTheme::appNameGUI() const
 {
-    return QLatin1String("ownCloud");
+    return QLatin1String("CloudBag");
 }
 
-
+    QString ownCloudTheme::overrideServerUrl() const
+    {
+        return QLatin1String("http://cloudbag.tnet.it");
+    }
+    
 }
 
