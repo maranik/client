@@ -495,7 +495,7 @@
 				<key>CONCLUSION_ACTION</key>
 				<integer>0</integer>
 				<key>IDENTIFIER</key>
-				<string></string>
+				<string>it.cloudbag.desktopclient</string>
 				<key>NAME</key>
 				<string>CloudBag</string>
 				<key>OVERWRITE_PERMISSIONS</key>

@@ -7,11 +7,11 @@
 	<key>LSUIElement</key>
 	<true/>
 	<key>CFBundleDevelopmentRegion</key>
-        <string>English</string>
+        <string>Italian</string>
         <key>CFBundleExecutable</key>
         <string>@APPLICATION_EXECUTABLE@</string>
         <key>CFBundleIconFile</key>
-        <string>ownCloud.icns</string>
+        <string>CloudBag.icns</string>
         <key>CFBundleIdentifier</key>
         <string>@APPLICATION_REV_DOMAIN@</string>
         <key>CFBundleInfoDictionaryVersion</key>

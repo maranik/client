@@ -60,7 +60,7 @@ QIcon ownCloudTheme::trayFolderIcon( const QString& ) const
 
 QIcon ownCloudTheme::applicationIcon( ) const
 {
-    return themeIcon( QLatin1String("owncloud-icon") );
+    return themeIcon( QLatin1String("cloudbag-icon") );
 }
 
 
@@ -81,7 +81,7 @@ QVariant ownCloudTheme::customMedia(Theme::CustomMediaType type)
 
 QString ownCloudTheme::helpUrl() const
 {
-    return QString::fromLatin1("https://tnet.it/contatti");
+    return QString::fromLatin1("http://tnet.it/contatti");
 }
 
 #ifndef TOKEN_AUTH_ONLY

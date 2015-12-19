@@ -93,14 +93,14 @@ macro (KDE4_ADD_APP_ICON appsources pattern)
                                    )
 
                 # This will register the icon into the bundle
-                set(MACOSX_BUNDLE_ICON_FILE ${appsources}.icns)
+                set(MACOSX_BUNDLE_ICON_FILE CloudBag.icns)
 
                 # Append the icns file to the sources list so it will be a dependency to the
                 # main target
-                list(APPEND ${appsources} ${_outfilename}.icns)
+                list(APPEND ${appsources} CloudBag.icns)
 
                 # Install the icon into the Resources dir in the bundle
-                set_source_files_properties(${_outfilename}.icns PROPERTIES MACOSX_PACKAGE_LOCATION Resources)
+                set_source_files_properties(CloudBag.icns PROPERTIES MACOSX_PACKAGE_LOCATION Resources)
 
             else(_icon)
                 # TODO - try to scale a non-128 icon...? Try to convert an SVG on the fly?
