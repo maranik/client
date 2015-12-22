@@ -87,7 +87,7 @@ QString ownCloudTheme::helpUrl() const
 #ifndef TOKEN_AUTH_ONLY
 QColor ownCloudTheme::wizardHeaderBackgroundColor() const
 {
-    return QColor("#1d2d42");
+    return QColor("#008ad1");
 }
 
 QColor ownCloudTheme::wizardHeaderTitleColor() const
