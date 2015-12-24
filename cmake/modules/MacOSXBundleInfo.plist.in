@@ -34,5 +34,8 @@
         <string>10.7.0</string>
         <key>SUPublicDSAKeyFile</key>
         <string>dsa_pub.pem</string>
+	<key>SUFeedURL</key>
+	<string>https://secure.add-design.it/cloudbag/update.xml</string>
+	
 </dict>
 </plist>
