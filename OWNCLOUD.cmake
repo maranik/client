@@ -2,7 +2,7 @@ set( APPLICATION_NAME       "CloudBag" )
 set( APPLICATION_EXECUTABLE "CloudBag" )
 set( APPLICATION_DOMAIN     "cloudbag.it" )
 set( APPLICATION_VENDOR     "Tnet Italia S.p.A." )
-set( APPLICATION_UPDATE_URL "https://secure.add-design.it/cloudbag/update.xml" CACHE string "URL for updater" )
+set( APPLICATION_UPDATE_URL "https://updatecloudbag.tnet.it/update.cloudbag/mac.xml" CACHE string "URL for updater" )
 
 set( THEME_CLASS            "ownCloudTheme" )
 set( APPLICATION_REV_DOMAIN "it.cloudbag.desktopclient" )
