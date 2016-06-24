@@ -45,8 +45,10 @@ QString ownCloudTheme::about() const
 {
     QString devString;
     devString = trUtf8("<p>Version %2.</p>"
-               ).arg(MIRALL_VERSION_STRING);
+               )
+            .arg(MIRALL_VERSION_STRING);
 
+    devString += gitSHA1();
     return devString;
 
 }
@@ -99,6 +101,7 @@ QPixmap ownCloudTheme::wizardHeaderLogo() const
 {
     return QPixmap(hidpiFileName(":/client/theme/colored/wizard_logo.png"));
 }
+
 #endif
 
 QString ownCloudTheme::appName() const
@@ -111,10 +114,10 @@ QString ownCloudTheme::appNameGUI() const
     return QLatin1String("CloudBag");
 }
 
-    QString ownCloudTheme::overrideServerUrl() const
-    {
-        return QLatin1String("http://cloudbag.tnet.it");
-    }
-    
+QString ownCloudTheme::overrideServerUrl() const
+{
+    return QLatin1String("https://cloudbag.tnet.it");
+}
+
 }
 

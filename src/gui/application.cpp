@@ -113,6 +113,7 @@ Application::Application(int &argc, char **argv) :
 #if QT_VERSION > QT_VERSION_CHECK(5, 0, 0)
     setAttribute(Qt::AA_UseHighDpiPixmaps, true);
 #endif
+
     parseOptions(arguments());
     //no need to waste time;
     if ( _helpOnly || _versionOnly ) return;
@@ -165,6 +166,9 @@ Application::Application(int &argc, char **argv) :
         _gui->slotToggleLogBrowser(); // _showLogWindow is set in parseOptions.
     }
 
+    // Enable word wrapping of QInputDialog (#4197)
+    setStyleSheet("QInputDialog QLabel { qproperty-wordWrap:1; }");
+
     connect(AccountManager::instance(), SIGNAL(accountAdded(AccountState*)),
             SLOT(slotAccountStateAdded(AccountState*)));
     connect(AccountManager::instance(), SIGNAL(accountRemoved(AccountState*)),
@@ -178,7 +182,7 @@ Application::Application(int &argc, char **argv) :
 
     // startup procedure.
     connect(&_checkConnectionTimer, SIGNAL(timeout()), this, SLOT(slotCheckConnection()));
-    _checkConnectionTimer.setInterval(ConnectionValidator::defaultCallingIntervalMsec()); // check for connection every 32 seconds.
+    _checkConnectionTimer.setInterval(ConnectionValidator::DefaultCallingIntervalMsec); // check for connection every 32 seconds.
     _checkConnectionTimer.start();
     // Also check immediately
     QTimer::singleShot( 0, this, SLOT( slotCheckConnection() ));
@@ -215,10 +219,14 @@ void Application::slotAccountStateRemoved(AccountState *accountState)
     if (_gui) {
         disconnect(accountState, SIGNAL(stateChanged(int)),
                    _gui, SLOT(slotAccountStateChanged()));
+        disconnect(accountState->account().data(), SIGNAL(serverVersionChanged(Account*,QString,QString)),
+                   _gui, SLOT(slotTrayMessageIfServerUnsupported(Account*)));
     }
     if (_folderManager) {
         disconnect(accountState, SIGNAL(stateChanged(int)),
                    _folderManager.data(), SLOT(slotAccountStateChanged()));
+        disconnect(accountState->account().data(), SIGNAL(serverVersionChanged(Account*,QString,QString)),
+                   _folderManager.data(), SLOT(slotServerVersionChanged(Account*)));
     }
 
     // if there is no more account, show the wizard.
@@ -233,8 +241,14 @@ void Application::slotAccountStateAdded(AccountState *accountState)
 {
     connect(accountState, SIGNAL(stateChanged(int)),
             _gui, SLOT(slotAccountStateChanged()));
+    connect(accountState->account().data(), SIGNAL(serverVersionChanged(Account*,QString,QString)),
+            _gui, SLOT(slotTrayMessageIfServerUnsupported(Account*)));
     connect(accountState, SIGNAL(stateChanged(int)),
             _folderManager.data(), SLOT(slotAccountStateChanged()));
+    connect(accountState->account().data(), SIGNAL(serverVersionChanged(Account*,QString,QString)),
+            _folderManager.data(), SLOT(slotServerVersionChanged(Account*)));
+
+    _gui->slotTrayMessageIfServerUnsupported(accountState->account().data());
 }
 
 void Application::slotCleanup()
@@ -267,7 +281,7 @@ void Application::slotCheckConnection()
         // when the error is permanent.
         if (state != AccountState::SignedOut
                 && state != AccountState::ConfigurationError) {
-            accountState->checkConnectivity(AccountState::NonInteractive);
+            accountState->checkConnectivity();
         }
     }
 
@@ -542,7 +556,9 @@ void Application::setupTranslations()
             const QString qtBaseTrFile = QLatin1String("qtbase_") + lang;
             if (!qtTranslator->load(qtTrFile, qtTrPath)) {
                 if (!qtTranslator->load(qtTrFile, trPath)) {
-                    qtTranslator->load(qtBaseTrFile, trPath);
+                    if (!qtTranslator->load(qtBaseTrFile, qtTrPath)) {
+                        qtTranslator->load(qtBaseTrFile, trPath);
+                    }
                 }
             }
             const QString qtkeychainTrFile = QLatin1String("qtkeychain_") + lang;
@@ -560,6 +576,10 @@ void Application::setupTranslations()
         if (property("ui_lang").isNull())
             setProperty("ui_lang", "C");
     }
+// Work around Qt 5 < 5.5.0 regression, see https://bugreports.qt.io/browse/QTBUG-43447
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0) && QT_VERSION < QT_VERSION_CHECK(5, 5, 0)
+    setLayoutDirection(QApplication::tr("QT_LAYOUT_DIRECTION") == QLatin1String("RTL") ? Qt::RightToLeft : Qt::LeftToRight);
+#endif
 }
 
 bool Application::giveHelp()

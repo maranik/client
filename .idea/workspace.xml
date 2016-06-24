@@ -1,0 +1,867 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" assignedExecutableTargets="true" buildAllGenerated="false">
+    <generated />
+  </component>
+  <component name="CMakeSettings" AUTO_RELOAD="false" GENERATION_PASS_SYSTEM_ENVIRONMENT="true">
+    <ADDITIONAL_GENERATION_ENVIRONMENT>
+      <envs />
+    </ADDITIONAL_GENERATION_ENVIRONMENT>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="eb3f257c-53c2-412f-adfa-297a030351f2" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/theme/colored/wizard_logo.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/theme/colored/wizard_logo@2x.png" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/csync/tests/ownCloud/.gitignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/shell_integration/windows/OCOverlays/ico/Error_Shared.ico" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/shell_integration/windows/OCOverlays/ico/Sync_Shared.ico" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/shell_integration/windows/OCOverlays/ico/Warning_Shared.ico" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/3rdparty/fancylineedit/fancylineedit.cpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/3rdparty/fancylineedit/fancylineedit.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/main.cpp.in" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/oc_bin.h.in" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/testchecksumvalidator.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/testconcaturl.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/testcsyncsqlite.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/testexcludedfiles.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/testfilesystem.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/testfolder.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/testfolderman.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/testfolderwatcher.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/testinotifywatcher.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/testnetrcparser.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/testowncloudpropagator.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/testownsql.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/testsyncfileitem.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/testsyncjournaldb.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/testupdater.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/testutility.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/testxmlparse.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/theme/colored/owncloud-icon-16.png" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/win/nsi/l10n/Dutch.nsh" afterPath="$PROJECT_DIR$/admin/win/nsi/l10n/Dutch.nsh" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/win/nsi/l10n/Finnish.nsh" afterPath="$PROJECT_DIR$/admin/win/nsi/l10n/Finnish.nsh" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/win/nsi/l10n/German.nsh" afterPath="$PROJECT_DIR$/admin/win/nsi/l10n/German.nsh" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/win/nsi/l10n/Italian.nsh" afterPath="$PROJECT_DIR$/admin/win/nsi/l10n/Italian.nsh" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/win/nsi/l10n/Japanese.nsh" afterPath="$PROJECT_DIR$/admin/win/nsi/l10n/Japanese.nsh" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/win/nsi/l10n/Polish.nsh" afterPath="$PROJECT_DIR$/admin/win/nsi/l10n/Polish.nsh" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/win/nsi/l10n/Slovenian.nsh" afterPath="$PROJECT_DIR$/admin/win/nsi/l10n/Slovenian.nsh" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/images/client-8.png" afterPath="$PROJECT_DIR$/doc/images/client-8.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/images/client-9.png" afterPath="$PROJECT_DIR$/doc/images/client-9.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/images/client6.png" afterPath="$PROJECT_DIR$/doc/images/client6.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/images/mac-share.png" afterPath="$PROJECT_DIR$/doc/images/mac-share.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/images/menu.png" afterPath="$PROJECT_DIR$/doc/images/menu.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/images/share-2.png" afterPath="$PROJECT_DIR$/doc/images/share-2.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shell_integration/windows/OCOverlays/ico/Error.ico" afterPath="$PROJECT_DIR$/shell_integration/windows/OCOverlays/ico/Error.ico" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shell_integration/windows/OCOverlays/ico/OK.ico" afterPath="$PROJECT_DIR$/shell_integration/windows/OCOverlays/ico/OK.ico" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shell_integration/windows/OCOverlays/ico/OK_Shared.ico" afterPath="$PROJECT_DIR$/shell_integration/windows/OCOverlays/ico/OK_Shared.ico" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shell_integration/windows/OCOverlays/ico/Sync.ico" afterPath="$PROJECT_DIR$/shell_integration/windows/OCOverlays/ico/Sync.ico" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shell_integration/windows/OCOverlays/ico/Warning.ico" afterPath="$PROJECT_DIR$/shell_integration/windows/OCOverlays/ico/Warning.ico" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/activitywidget.ui" afterPath="$PROJECT_DIR$/src/gui/activitywidget.ui" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/folderwizardsourcepage.ui" afterPath="$PROJECT_DIR$/src/gui/folderwizardsourcepage.ui" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/owncloudsetuppage.ui" afterPath="$PROJECT_DIR$/src/gui/owncloudsetuppage.ui" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/protocolwidget.ui" afterPath="$PROJECT_DIR$/src/gui/protocolwidget.ui" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/sharedialog.ui" afterPath="$PROJECT_DIR$/src/gui/sharedialog.ui" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/sharelinkwidget.ui" afterPath="$PROJECT_DIR$/src/gui/sharelinkwidget.ui" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/shareusergroupwidget.ui" afterPath="$PROJECT_DIR$/src/gui/shareusergroupwidget.ui" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/wizard/owncloudhttpcredspage.ui" afterPath="$PROJECT_DIR$/src/gui/wizard/owncloudhttpcredspage.ui" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/wizard/owncloudsetupnocredspage.ui" afterPath="$PROJECT_DIR$/src/gui/wizard/owncloudsetupnocredspage.ui" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/theme/colored/owncloud-icon-128.png" afterPath="$PROJECT_DIR$/theme/colored/owncloud-icon-128.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/theme/colored/owncloud-icon-22.png" afterPath="$PROJECT_DIR$/theme/colored/owncloud-icon-22.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/theme/colored/owncloud-icon-256.png" afterPath="$PROJECT_DIR$/theme/colored/owncloud-icon-256.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/theme/colored/owncloud-icon-32.png" afterPath="$PROJECT_DIR$/theme/colored/owncloud-icon-32.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/theme/colored/owncloud-icon-48.png" afterPath="$PROJECT_DIR$/theme/colored/owncloud-icon-48.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/theme/colored/owncloud-icon-512.png" afterPath="$PROJECT_DIR$/theme/colored/owncloud-icon-512.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/theme/colored/owncloud-icon-64.png" afterPath="$PROJECT_DIR$/theme/colored/owncloud-icon-64.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/theme/colored/state-download-128.png" afterPath="$PROJECT_DIR$/theme/colored/state-download-128.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/theme/colored/state-download-16.png" afterPath="$PROJECT_DIR$/theme/colored/state-download-16.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/theme/colored/state-download-256.png" afterPath="$PROJECT_DIR$/theme/colored/state-download-256.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/theme/colored/state-download-32.png" afterPath="$PROJECT_DIR$/theme/colored/state-download-32.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/theme/colored/state-download-64.png" afterPath="$PROJECT_DIR$/theme/colored/state-download-64.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/theme/colored/state-error-128.png" afterPath="$PROJECT_DIR$/theme/colored/state-error-128.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/theme/colored/state-error-16.png" afterPath="$PROJECT_DIR$/theme/colored/state-error-16.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/theme/colored/state-error-256.png" afterPath="$PROJECT_DIR$/theme/colored/state-error-256.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/theme/colored/state-error-32.png" afterPath="$PROJECT_DIR$/theme/colored/state-error-32.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/theme/colored/state-error-64.png" afterPath="$PROJECT_DIR$/theme/colored/state-error-64.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/theme/colored/state-information-128.png" afterPath="$PROJECT_DIR$/theme/colored/state-information-128.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/theme/colored/state-information-16.png" afterPath="$PROJECT_DIR$/theme/colored/state-information-16.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/theme/colored/state-information-256.png" afterPath="$PROJECT_DIR$/theme/colored/state-information-256.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/theme/colored/state-information-32.png" afterPath="$PROJECT_DIR$/theme/colored/state-information-32.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/theme/colored/state-information-64.png" afterPath="$PROJECT_DIR$/theme/colored/state-information-64.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/theme/colored/state-offline-128.png" afterPath="$PROJECT_DIR$/theme/colored/state-offline-128.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/theme/colored/state-offline-16.png" afterPath="$PROJECT_DIR$/theme/colored/state-offline-16.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/theme/colored/state-offline-256.png" afterPath="$PROJECT_DIR$/theme/colored/state-offline-256.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/theme/colored/state-offline-32.png" afterPath="$PROJECT_DIR$/theme/colored/state-offline-32.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/theme/colored/state-offline-64.png" afterPath="$PROJECT_DIR$/theme/colored/state-offline-64.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/theme/colored/state-ok-128.png" afterPath="$PROJECT_DIR$/theme/colored/state-ok-128.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/theme/colored/state-ok-16.png" afterPath="$PROJECT_DIR$/theme/colored/state-ok-16.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/theme/colored/state-ok-256.png" afterPath="$PROJECT_DIR$/theme/colored/state-ok-256.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/theme/colored/state-ok-32.png" afterPath="$PROJECT_DIR$/theme/colored/state-ok-32.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/theme/colored/state-ok-64.png" afterPath="$PROJECT_DIR$/theme/colored/state-ok-64.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/theme/colored/state-pause-128.png" afterPath="$PROJECT_DIR$/theme/colored/state-pause-128.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/theme/colored/state-pause-16.png" afterPath="$PROJECT_DIR$/theme/colored/state-pause-16.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/theme/colored/state-pause-256.png" afterPath="$PROJECT_DIR$/theme/colored/state-pause-256.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/theme/colored/state-pause-32.png" afterPath="$PROJECT_DIR$/theme/colored/state-pause-32.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/theme/colored/state-pause-64.png" afterPath="$PROJECT_DIR$/theme/colored/state-pause-64.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/theme/colored/state-sync-128.png" afterPath="$PROJECT_DIR$/theme/colored/state-sync-128.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/theme/colored/state-sync-16.png" afterPath="$PROJECT_DIR$/theme/colored/state-sync-16.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/theme/colored/state-sync-256.png" afterPath="$PROJECT_DIR$/theme/colored/state-sync-256.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/theme/colored/state-sync-32.png" afterPath="$PROJECT_DIR$/theme/colored/state-sync-32.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/theme/colored/state-sync-64.png" afterPath="$PROJECT_DIR$/theme/colored/state-sync-64.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/theme/colored/state-warning-128.png" afterPath="$PROJECT_DIR$/theme/colored/state-warning-128.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/theme/colored/state-warning-16.png" afterPath="$PROJECT_DIR$/theme/colored/state-warning-16.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/theme/colored/state-warning-256.png" afterPath="$PROJECT_DIR$/theme/colored/state-warning-256.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/theme/colored/state-warning-32.png" afterPath="$PROJECT_DIR$/theme/colored/state-warning-32.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/theme/colored/state-warning-64.png" afterPath="$PROJECT_DIR$/theme/colored/state-warning-64.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CMakeLists.txt" afterPath="$PROJECT_DIR$/CMakeLists.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ChangeLog" afterPath="$PROJECT_DIR$/ChangeLog" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/OWNCLOUD.cmake" afterPath="$PROJECT_DIR$/OWNCLOUD.cmake" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/VERSION.cmake" afterPath="$PROJECT_DIR$/VERSION.cmake" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/osx/create_mac.sh" afterPath="$PROJECT_DIR$/admin/osx/create_mac.sh" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/osx/gen_sym_files.py" afterPath="$PROJECT_DIR$/admin/osx/gen_sym_files.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/osx/macdeployqt.py" afterPath="$PROJECT_DIR$/admin/osx/macdeployqt.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/osx/post_install.sh.cmake" afterPath="$PROJECT_DIR$/admin/osx/post_install.sh.cmake" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/osx/sign_app.sh" afterPath="$PROJECT_DIR$/admin/osx/sign_app.sh" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/qt/patches/README.md" afterPath="$PROJECT_DIR$/admin/qt/patches/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/win/docker/build.sh" afterPath="$PROJECT_DIR$/admin/win/docker/build.sh" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/win/nsi/l10n/Basque.nsh" afterPath="$PROJECT_DIR$/admin/win/nsi/l10n/Basque.nsh" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/win/nsi/l10n/Farsi.nsh" afterPath="$PROJECT_DIR$/admin/win/nsi/l10n/Farsi.nsh" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/win/nsi/l10n/Hungarian.nsh" afterPath="$PROJECT_DIR$/admin/win/nsi/l10n/Hungarian.nsh" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/win/nsi/l10n/Portuguese.nsh" afterPath="$PROJECT_DIR$/admin/win/nsi/l10n/Portuguese.nsh" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/win/nsi/l10n/Russian.nsh" afterPath="$PROJECT_DIR$/admin/win/nsi/l10n/Russian.nsh" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/win/nsi/l10n/SimpChinese.nsh" afterPath="$PROJECT_DIR$/admin/win/nsi/l10n/SimpChinese.nsh" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/win/nsi/l10n/SpanishInternational.nsh" afterPath="$PROJECT_DIR$/admin/win/nsi/l10n/SpanishInternational.nsh" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/win/nsi/l10n/Swedish.nsh" afterPath="$PROJECT_DIR$/admin/win/nsi/l10n/Swedish.nsh" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/win/nsi/l10n/Thai.nsh" afterPath="$PROJECT_DIR$/admin/win/nsi/l10n/Thai.nsh" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/win/nsi/l10n/Ukrainian.nsh" afterPath="$PROJECT_DIR$/admin/win/nsi/l10n/Ukrainian.nsh" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/win/nsi/l10n/bin/build_locale_nsi.py" afterPath="$PROJECT_DIR$/admin/win/nsi/l10n/bin/build_locale_nsi.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client.qrc" afterPath="$PROJECT_DIR$/client.qrc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake/modules/AddCMockaTest.cmake" afterPath="$PROJECT_DIR$/cmake/modules/AddCMockaTest.cmake" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake/modules/NSIS.template.in" afterPath="$PROJECT_DIR$/cmake/modules/NSIS.template.in" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake/modules/QtVersionAbstraction.cmake" afterPath="$PROJECT_DIR$/cmake/modules/QtVersionAbstraction.cmake" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csync/src/CMakeLists.txt" afterPath="$PROJECT_DIR$/csync/src/CMakeLists.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csync/src/csync.c" afterPath="$PROJECT_DIR$/csync/src/csync.c" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csync/src/csync.h" afterPath="$PROJECT_DIR$/csync/src/csync.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csync/src/csync_exclude.c" afterPath="$PROJECT_DIR$/csync/src/csync_exclude.c" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csync/src/csync_exclude.h" afterPath="$PROJECT_DIR$/csync/src/csync_exclude.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csync/src/csync_misc.h" afterPath="$PROJECT_DIR$/csync/src/csync_misc.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csync/src/csync_private.h" afterPath="$PROJECT_DIR$/csync/src/csync_private.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csync/src/csync_reconcile.c" afterPath="$PROJECT_DIR$/csync/src/csync_reconcile.c" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csync/src/csync_statedb.h" afterPath="$PROJECT_DIR$/csync/src/csync_statedb.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csync/src/csync_update.c" afterPath="$PROJECT_DIR$/csync/src/csync_update.c" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csync/src/csync_util.c" afterPath="$PROJECT_DIR$/csync/src/csync_util.c" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csync/src/std/c_rbtree.c" afterPath="$PROJECT_DIR$/csync/src/std/c_rbtree.c" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csync/src/std/c_rbtree.h" afterPath="$PROJECT_DIR$/csync/src/std/c_rbtree.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csync/src/vio/csync_vio_local_win.c" afterPath="$PROJECT_DIR$/csync/src/vio/csync_vio_local_win.c" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csync/tests/CMakeLists.txt" afterPath="$PROJECT_DIR$/csync/tests/CMakeLists.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csync/tests/csync_tests/check_csync_commit.c" afterPath="$PROJECT_DIR$/csync/tests/csync_tests/check_csync_commit.c" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csync/tests/csync_tests/check_csync_create.c" afterPath="$PROJECT_DIR$/csync/tests/csync_tests/check_csync_create.c" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csync/tests/csync_tests/check_csync_exclude.c" afterPath="$PROJECT_DIR$/csync/tests/csync_tests/check_csync_exclude.c" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csync/tests/csync_tests/check_csync_init.c" afterPath="$PROJECT_DIR$/csync/tests/csync_tests/check_csync_init.c" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csync/tests/csync_tests/check_csync_log.c" afterPath="$PROJECT_DIR$/csync/tests/csync_tests/check_csync_log.c" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csync/tests/csync_tests/check_csync_statedb_load.c" afterPath="$PROJECT_DIR$/csync/tests/csync_tests/check_csync_statedb_load.c" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csync/tests/csync_tests/check_csync_statedb_query.c" afterPath="$PROJECT_DIR$/csync/tests/csync_tests/check_csync_statedb_query.c" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csync/tests/csync_tests/check_csync_update.c" afterPath="$PROJECT_DIR$/csync/tests/csync_tests/check_csync_update.c" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csync/tests/ownCloud/ownCloud/Test.pm" afterPath="$PROJECT_DIR$/csync/tests/ownCloud/ownCloud/Test.pm" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csync/tests/ownCloud/t1.pl" afterPath="$PROJECT_DIR$/csync/tests/ownCloud/t1.pl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csync/tests/ownCloud/t9.pl" afterPath="$PROJECT_DIR$/csync/tests/ownCloud/t9.pl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csync/tests/std_tests/check_std_c_rbtree.c" afterPath="$PROJECT_DIR$/csync/tests/std_tests/check_std_c_rbtree.c" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csync/tests/vio_tests/check_vio.c" afterPath="$PROJECT_DIR$/csync/tests/vio_tests/check_vio.c" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csync/tests/vio_tests/check_vio_ext.c" afterPath="$PROJECT_DIR$/csync/tests/vio_tests/check_vio_ext.c" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/advancedusage.rst" afterPath="$PROJECT_DIR$/doc/advancedusage.rst" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/autoupdate.rst" afterPath="$PROJECT_DIR$/doc/autoupdate.rst" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/building.rst" afterPath="$PROJECT_DIR$/doc/building.rst" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/conf.py.in" afterPath="$PROJECT_DIR$/doc/conf.py.in" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/conffile.rst" afterPath="$PROJECT_DIR$/doc/conffile.rst" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/index.rst" afterPath="$PROJECT_DIR$/doc/index.rst" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/introduction.rst" afterPath="$PROJECT_DIR$/doc/introduction.rst" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/navigating.rst" afterPath="$PROJECT_DIR$/doc/navigating.rst" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/owncloudcmd.1.rst" afterPath="$PROJECT_DIR$/doc/owncloudcmd.1.rst" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/owncloudcmd.rst" afterPath="$PROJECT_DIR$/doc/owncloudcmd.rst" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/troubleshooting.rst" afterPath="$PROJECT_DIR$/doc/troubleshooting.rst" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mirall.desktop.in" afterPath="$PROJECT_DIR$/mirall.desktop.in" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shell_integration/MacOSX/CMakeLists.txt" afterPath="$PROJECT_DIR$/shell_integration/MacOSX/CMakeLists.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shell_integration/MacOSX/OwnCloudFinderSync/FinderSyncExt/FinderSync.h" afterPath="$PROJECT_DIR$/shell_integration/MacOSX/OwnCloudFinderSync/FinderSyncExt/FinderSync.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shell_integration/MacOSX/OwnCloudFinderSync/FinderSyncExt/FinderSync.m" afterPath="$PROJECT_DIR$/shell_integration/MacOSX/OwnCloudFinderSync/FinderSyncExt/FinderSync.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shell_integration/MacOSX/OwnCloudFinderSync/OwnCloudFinderSync.xcodeproj/project.pbxproj" afterPath="$PROJECT_DIR$/shell_integration/MacOSX/OwnCloudFinderSync/OwnCloudFinderSync.xcodeproj/project.pbxproj" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shell_integration/dolphin/CMakeLists.txt" afterPath="$PROJECT_DIR$/shell_integration/dolphin/CMakeLists.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shell_integration/dolphin/ownclouddolphinoverlayplugin.cpp" afterPath="$PROJECT_DIR$/shell_integration/dolphin/ownclouddolphinoverlayplugin.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shell_integration/icons/nopadding/SVG/attention.svg" afterPath="$PROJECT_DIR$/shell_integration/icons/nopadding/SVG/attention.svg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shell_integration/icons/nopadding/SVG/error.svg" afterPath="$PROJECT_DIR$/shell_integration/icons/nopadding/SVG/error.svg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shell_integration/icons/nopadding/SVG/ok.svg" afterPath="$PROJECT_DIR$/shell_integration/icons/nopadding/SVG/ok.svg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shell_integration/icons/nopadding/SVG/shared.svg" afterPath="$PROJECT_DIR$/shell_integration/icons/nopadding/SVG/shared.svg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shell_integration/icons/nopadding/SVG/sync.svg" afterPath="$PROJECT_DIR$/shell_integration/icons/nopadding/SVG/sync.svg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shell_integration/nautilus/CMakeLists.txt" afterPath="$PROJECT_DIR$/shell_integration/nautilus/CMakeLists.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shell_integration/nautilus/setappname.sh" afterPath="$PROJECT_DIR$/shell_integration/nautilus/setappname.sh" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shell_integration/nautilus/syncstate.py" afterPath="$PROJECT_DIR$/shell_integration/nautilus/syncstate.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shell_integration/windows/OCContextMenu/OCClientInterface.cpp" afterPath="$PROJECT_DIR$/shell_integration/windows/OCContextMenu/OCClientInterface.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shell_integration/windows/OCOverlays/DllMain.cpp" afterPath="$PROJECT_DIR$/shell_integration/windows/OCOverlays/DllMain.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shell_integration/windows/OCOverlays/OCOverlay.cpp" afterPath="$PROJECT_DIR$/shell_integration/windows/OCOverlays/OCOverlay.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shell_integration/windows/OCOverlays/OCOverlay.rc" afterPath="$PROJECT_DIR$/shell_integration/windows/OCOverlays/OCOverlay.rc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shell_integration/windows/OCOverlays/OCOverlayFactory.h" afterPath="$PROJECT_DIR$/shell_integration/windows/OCOverlays/OCOverlayFactory.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shell_integration/windows/OCOverlays/OCOverlays.vcxproj" afterPath="$PROJECT_DIR$/shell_integration/windows/OCOverlays/OCOverlays.vcxproj" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shell_integration/windows/OCUtil/CommunicationSocket.cpp" afterPath="$PROJECT_DIR$/shell_integration/windows/OCUtil/CommunicationSocket.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shell_integration/windows/OCUtil/CommunicationSocket.h" afterPath="$PROJECT_DIR$/shell_integration/windows/OCUtil/CommunicationSocket.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shell_integration/windows/OCUtil/OCUtil.vcxproj" afterPath="$PROJECT_DIR$/shell_integration/windows/OCUtil/OCUtil.vcxproj" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shell_integration/windows/OCUtil/RemotePathChecker.cpp" afterPath="$PROJECT_DIR$/shell_integration/windows/OCUtil/RemotePathChecker.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shell_integration/windows/OCUtil/RemotePathChecker.h" afterPath="$PROJECT_DIR$/shell_integration/windows/OCUtil/RemotePathChecker.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/3rdparty/certificates/p12topem.cpp" afterPath="$PROJECT_DIR$/src/3rdparty/certificates/p12topem.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/3rdparty/sqlite3/sqlite3.c" afterPath="$PROJECT_DIR$/src/3rdparty/sqlite3/sqlite3.c" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/3rdparty/sqlite3/sqlite3.h" afterPath="$PROJECT_DIR$/src/3rdparty/sqlite3/sqlite3.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/CMakeLists.txt" afterPath="$PROJECT_DIR$/src/CMakeLists.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cmd/CMakeLists.txt" afterPath="$PROJECT_DIR$/src/cmd/CMakeLists.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cmd/cmd.cpp" afterPath="$PROJECT_DIR$/src/cmd/cmd.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cmd/netrcparser.cpp" afterPath="$PROJECT_DIR$/src/cmd/netrcparser.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cmd/netrcparser.h" afterPath="$PROJECT_DIR$/src/cmd/netrcparser.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/CMakeLists.txt" afterPath="$PROJECT_DIR$/src/gui/CMakeLists.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/accountmanager.cpp" afterPath="$PROJECT_DIR$/src/gui/accountmanager.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/accountmanager.h" afterPath="$PROJECT_DIR$/src/gui/accountmanager.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/accountsettings.cpp" afterPath="$PROJECT_DIR$/src/gui/accountsettings.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/accountstate.cpp" afterPath="$PROJECT_DIR$/src/gui/accountstate.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/accountstate.h" afterPath="$PROJECT_DIR$/src/gui/accountstate.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/activityitemdelegate.cpp" afterPath="$PROJECT_DIR$/src/gui/activityitemdelegate.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/activitywidget.cpp" afterPath="$PROJECT_DIR$/src/gui/activitywidget.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/activitywidget.h" afterPath="$PROJECT_DIR$/src/gui/activitywidget.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/application.cpp" afterPath="$PROJECT_DIR$/src/gui/application.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/creds/shibboleth/shibbolethwebview.cpp" afterPath="$PROJECT_DIR$/src/gui/creds/shibboleth/shibbolethwebview.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/creds/shibbolethcredentials.cpp" afterPath="$PROJECT_DIR$/src/gui/creds/shibbolethcredentials.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/folder.cpp" afterPath="$PROJECT_DIR$/src/gui/folder.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/folder.h" afterPath="$PROJECT_DIR$/src/gui/folder.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/folderman.cpp" afterPath="$PROJECT_DIR$/src/gui/folderman.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/folderman.h" afterPath="$PROJECT_DIR$/src/gui/folderman.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/folderstatusdelegate.cpp" afterPath="$PROJECT_DIR$/src/gui/folderstatusdelegate.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/folderstatusdelegate.h" afterPath="$PROJECT_DIR$/src/gui/folderstatusdelegate.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/folderstatusmodel.cpp" afterPath="$PROJECT_DIR$/src/gui/folderstatusmodel.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/folderwatcher_linux.cpp" afterPath="$PROJECT_DIR$/src/gui/folderwatcher_linux.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/folderwatcher_mac.cpp" afterPath="$PROJECT_DIR$/src/gui/folderwatcher_mac.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/folderwatcher_win.cpp" afterPath="$PROJECT_DIR$/src/gui/folderwatcher_win.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/folderwatcher_win.h" afterPath="$PROJECT_DIR$/src/gui/folderwatcher_win.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/folderwizard.cpp" afterPath="$PROJECT_DIR$/src/gui/folderwizard.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/folderwizard.h" afterPath="$PROJECT_DIR$/src/gui/folderwizard.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/generalsettings.cpp" afterPath="$PROJECT_DIR$/src/gui/generalsettings.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/main.cpp" afterPath="$PROJECT_DIR$/src/gui/main.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/networksettings.cpp" afterPath="$PROJECT_DIR$/src/gui/networksettings.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/ocsjob.cpp" afterPath="$PROJECT_DIR$/src/gui/ocsjob.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/ocsjob.h" afterPath="$PROJECT_DIR$/src/gui/ocsjob.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/ocssharejob.cpp" afterPath="$PROJECT_DIR$/src/gui/ocssharejob.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/ocssharejob.h" afterPath="$PROJECT_DIR$/src/gui/ocssharejob.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/owncloudgui.cpp" afterPath="$PROJECT_DIR$/src/gui/owncloudgui.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/owncloudgui.h" afterPath="$PROJECT_DIR$/src/gui/owncloudgui.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/owncloudsetupwizard.cpp" afterPath="$PROJECT_DIR$/src/gui/owncloudsetupwizard.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/protocolwidget.cpp" afterPath="$PROJECT_DIR$/src/gui/protocolwidget.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/protocolwidget.h" afterPath="$PROJECT_DIR$/src/gui/protocolwidget.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/quotainfo.cpp" afterPath="$PROJECT_DIR$/src/gui/quotainfo.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/quotainfo.h" afterPath="$PROJECT_DIR$/src/gui/quotainfo.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/selectivesyncdialog.cpp" afterPath="$PROJECT_DIR$/src/gui/selectivesyncdialog.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/selectivesyncdialog.h" afterPath="$PROJECT_DIR$/src/gui/selectivesyncdialog.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/settingsdialog.cpp" afterPath="$PROJECT_DIR$/src/gui/settingsdialog.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/settingsdialogmac.cpp" afterPath="$PROJECT_DIR$/src/gui/settingsdialogmac.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/share.cpp" afterPath="$PROJECT_DIR$/src/gui/share.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/share.h" afterPath="$PROJECT_DIR$/src/gui/share.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/sharedialog.cpp" afterPath="$PROJECT_DIR$/src/gui/sharedialog.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/sharedialog.h" afterPath="$PROJECT_DIR$/src/gui/sharedialog.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/sharee.cpp" afterPath="$PROJECT_DIR$/src/gui/sharee.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/sharee.h" afterPath="$PROJECT_DIR$/src/gui/sharee.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/sharelinkwidget.cpp" afterPath="$PROJECT_DIR$/src/gui/sharelinkwidget.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/sharelinkwidget.h" afterPath="$PROJECT_DIR$/src/gui/sharelinkwidget.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/shareusergroupwidget.cpp" afterPath="$PROJECT_DIR$/src/gui/shareusergroupwidget.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/shareusergroupwidget.h" afterPath="$PROJECT_DIR$/src/gui/shareusergroupwidget.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/socketapi.cpp" afterPath="$PROJECT_DIR$/src/gui/socketapi.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/socketapi.h" afterPath="$PROJECT_DIR$/src/gui/socketapi.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/syncrunfilelog.cpp" afterPath="$PROJECT_DIR$/src/gui/syncrunfilelog.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/systray.mm" afterPath="$PROJECT_DIR$/src/gui/systray.mm" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/updater/ocupdater.cpp" afterPath="$PROJECT_DIR$/src/gui/updater/ocupdater.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/version.rc.in" afterPath="$PROJECT_DIR$/src/gui/version.rc.in" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/wizard/owncloudadvancedsetuppage.cpp" afterPath="$PROJECT_DIR$/src/gui/wizard/owncloudadvancedsetuppage.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/wizard/owncloudhttpcredspage.cpp" afterPath="$PROJECT_DIR$/src/gui/wizard/owncloudhttpcredspage.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/wizard/owncloudsetuppage.cpp" afterPath="$PROJECT_DIR$/src/gui/wizard/owncloudsetuppage.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/libsync/CMakeLists.txt" afterPath="$PROJECT_DIR$/src/libsync/CMakeLists.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/libsync/abstractnetworkjob.cpp" afterPath="$PROJECT_DIR$/src/libsync/abstractnetworkjob.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/libsync/abstractnetworkjob.h" afterPath="$PROJECT_DIR$/src/libsync/abstractnetworkjob.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/libsync/accessmanager.cpp" afterPath="$PROJECT_DIR$/src/libsync/accessmanager.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/libsync/account.cpp" afterPath="$PROJECT_DIR$/src/libsync/account.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/libsync/account.h" afterPath="$PROJECT_DIR$/src/libsync/account.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/libsync/accountfwd.h" afterPath="$PROJECT_DIR$/src/libsync/accountfwd.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/libsync/capabilities.cpp" afterPath="$PROJECT_DIR$/src/libsync/capabilities.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/libsync/capabilities.h" afterPath="$PROJECT_DIR$/src/libsync/capabilities.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/libsync/checksums.cpp" afterPath="$PROJECT_DIR$/src/libsync/checksums.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/libsync/checksums.h" afterPath="$PROJECT_DIR$/src/libsync/checksums.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/libsync/configfile.cpp" afterPath="$PROJECT_DIR$/src/libsync/configfile.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/libsync/configfile.h" afterPath="$PROJECT_DIR$/src/libsync/configfile.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/libsync/connectionvalidator.cpp" afterPath="$PROJECT_DIR$/src/libsync/connectionvalidator.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/libsync/connectionvalidator.h" afterPath="$PROJECT_DIR$/src/libsync/connectionvalidator.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/libsync/creds/httpcredentials.cpp" afterPath="$PROJECT_DIR$/src/libsync/creds/httpcredentials.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/libsync/creds/httpcredentials.h" afterPath="$PROJECT_DIR$/src/libsync/creds/httpcredentials.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/libsync/creds/tokencredentials.cpp" afterPath="$PROJECT_DIR$/src/libsync/creds/tokencredentials.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/libsync/creds/tokencredentials.h" afterPath="$PROJECT_DIR$/src/libsync/creds/tokencredentials.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/libsync/discoveryphase.cpp" afterPath="$PROJECT_DIR$/src/libsync/discoveryphase.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/libsync/excludedfiles.cpp" afterPath="$PROJECT_DIR$/src/libsync/excludedfiles.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/libsync/excludedfiles.h" afterPath="$PROJECT_DIR$/src/libsync/excludedfiles.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/libsync/filesystem.cpp" afterPath="$PROJECT_DIR$/src/libsync/filesystem.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/libsync/filesystem.h" afterPath="$PROJECT_DIR$/src/libsync/filesystem.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/libsync/networkjobs.cpp" afterPath="$PROJECT_DIR$/src/libsync/networkjobs.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/libsync/networkjobs.h" afterPath="$PROJECT_DIR$/src/libsync/networkjobs.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/libsync/owncloudpropagator.cpp" afterPath="$PROJECT_DIR$/src/libsync/owncloudpropagator.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/libsync/owncloudpropagator.h" afterPath="$PROJECT_DIR$/src/libsync/owncloudpropagator.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/libsync/owncloudtheme.cpp" afterPath="$PROJECT_DIR$/src/libsync/owncloudtheme.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/libsync/owncloudtheme.h" afterPath="$PROJECT_DIR$/src/libsync/owncloudtheme.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/libsync/ownsql.cpp" afterPath="$PROJECT_DIR$/src/libsync/ownsql.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/libsync/ownsql.h" afterPath="$PROJECT_DIR$/src/libsync/ownsql.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/libsync/progressdispatcher.cpp" afterPath="$PROJECT_DIR$/src/libsync/progressdispatcher.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/libsync/progressdispatcher.h" afterPath="$PROJECT_DIR$/src/libsync/progressdispatcher.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/libsync/propagatedownload.cpp" afterPath="$PROJECT_DIR$/src/libsync/propagatedownload.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/libsync/propagatedownload.h" afterPath="$PROJECT_DIR$/src/libsync/propagatedownload.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/libsync/propagateremotedelete.cpp" afterPath="$PROJECT_DIR$/src/libsync/propagateremotedelete.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/libsync/propagateremotedelete.h" afterPath="$PROJECT_DIR$/src/libsync/propagateremotedelete.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/libsync/propagateremotemkdir.cpp" afterPath="$PROJECT_DIR$/src/libsync/propagateremotemkdir.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/libsync/propagateremotemkdir.h" afterPath="$PROJECT_DIR$/src/libsync/propagateremotemkdir.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/libsync/propagateremotemove.cpp" afterPath="$PROJECT_DIR$/src/libsync/propagateremotemove.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/libsync/propagateupload.cpp" afterPath="$PROJECT_DIR$/src/libsync/propagateupload.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/libsync/propagateupload.h" afterPath="$PROJECT_DIR$/src/libsync/propagateupload.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/libsync/propagatorjobs.cpp" afterPath="$PROJECT_DIR$/src/libsync/propagatorjobs.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/libsync/propagatorjobs.h" afterPath="$PROJECT_DIR$/src/libsync/propagatorjobs.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/libsync/syncengine.cpp" afterPath="$PROJECT_DIR$/src/libsync/syncengine.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/libsync/syncengine.h" afterPath="$PROJECT_DIR$/src/libsync/syncengine.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/libsync/syncfileitem.h" afterPath="$PROJECT_DIR$/src/libsync/syncfileitem.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/libsync/syncfilestatus.cpp" afterPath="$PROJECT_DIR$/src/libsync/syncfilestatus.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/libsync/syncfilestatus.h" afterPath="$PROJECT_DIR$/src/libsync/syncfilestatus.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/libsync/syncjournaldb.cpp" afterPath="$PROJECT_DIR$/src/libsync/syncjournaldb.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/libsync/syncjournaldb.h" afterPath="$PROJECT_DIR$/src/libsync/syncjournaldb.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/libsync/syncjournalfilerecord.cpp" afterPath="$PROJECT_DIR$/src/libsync/syncjournalfilerecord.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/libsync/syncjournalfilerecord.h" afterPath="$PROJECT_DIR$/src/libsync/syncjournalfilerecord.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/libsync/theme.cpp" afterPath="$PROJECT_DIR$/src/libsync/theme.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/libsync/theme.h" afterPath="$PROJECT_DIR$/src/libsync/theme.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/libsync/utility.cpp" afterPath="$PROJECT_DIR$/src/libsync/utility.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/libsync/utility.h" afterPath="$PROJECT_DIR$/src/libsync/utility.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sync-exclude.lst" afterPath="$PROJECT_DIR$/sync-exclude.lst" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/CMakeLists.txt" afterPath="$PROJECT_DIR$/test/CMakeLists.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/owncloud_add_test.cmake" afterPath="$PROJECT_DIR$/test/owncloud_add_test.cmake" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/stub.cpp" afterPath="$PROJECT_DIR$/test/stub.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/translations/.tx/config" afterPath="$PROJECT_DIR$/translations/.tx/config" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/translations/client_ca.ts" afterPath="$PROJECT_DIR$/translations/client_ca.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/translations/client_cs.ts" afterPath="$PROJECT_DIR$/translations/client_cs.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/translations/client_de.ts" afterPath="$PROJECT_DIR$/translations/client_de.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/translations/client_el.ts" afterPath="$PROJECT_DIR$/translations/client_el.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/translations/client_en.ts" afterPath="$PROJECT_DIR$/translations/client_en.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/translations/client_es.ts" afterPath="$PROJECT_DIR$/translations/client_es.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/translations/client_es_AR.ts" afterPath="$PROJECT_DIR$/translations/client_es_AR.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/translations/client_et.ts" afterPath="$PROJECT_DIR$/translations/client_et.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/translations/client_eu.ts" afterPath="$PROJECT_DIR$/translations/client_eu.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/translations/client_fa.ts" afterPath="$PROJECT_DIR$/translations/client_fa.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/translations/client_fi.ts" afterPath="$PROJECT_DIR$/translations/client_fi.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/translations/client_fr.ts" afterPath="$PROJECT_DIR$/translations/client_fr.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/translations/client_gl.ts" afterPath="$PROJECT_DIR$/translations/client_gl.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/translations/client_hu.ts" afterPath="$PROJECT_DIR$/translations/client_hu.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/translations/client_it.ts" afterPath="$PROJECT_DIR$/translations/client_it.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/translations/client_ja.ts" afterPath="$PROJECT_DIR$/translations/client_ja.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/translations/client_nb_NO.ts" afterPath="$PROJECT_DIR$/translations/client_nb_NO.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/translations/client_nl.ts" afterPath="$PROJECT_DIR$/translations/client_nl.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/translations/client_pl.ts" afterPath="$PROJECT_DIR$/translations/client_pl.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/translations/client_pt.ts" afterPath="$PROJECT_DIR$/translations/client_pt.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/translations/client_pt_BR.ts" afterPath="$PROJECT_DIR$/translations/client_pt_BR.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/translations/client_ru.ts" afterPath="$PROJECT_DIR$/translations/client_ru.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/translations/client_sk.ts" afterPath="$PROJECT_DIR$/translations/client_sk.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/translations/client_sl.ts" afterPath="$PROJECT_DIR$/translations/client_sl.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/translations/client_sr.ts" afterPath="$PROJECT_DIR$/translations/client_sr.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/translations/client_sv.ts" afterPath="$PROJECT_DIR$/translations/client_sv.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/translations/client_th.ts" afterPath="$PROJECT_DIR$/translations/client_th.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/translations/client_tr.ts" afterPath="$PROJECT_DIR$/translations/client_tr.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/translations/client_uk.ts" afterPath="$PROJECT_DIR$/translations/client_uk.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/translations/client_zh_CN.ts" afterPath="$PROJECT_DIR$/translations/client_zh_CN.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/translations/client_zh_TW.ts" afterPath="$PROJECT_DIR$/translations/client_zh_TW.ts" />
+    </list>
+    <ignored path="cloudbag-client.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="cloudbag-client" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="OWNCLOUD.cmake" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/OWNCLOUD.cmake">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="owncloudsetupwizard.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/gui/owncloudsetupwizard.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="owncloudgui.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/gui/owncloudgui.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1665">
+              <caret line="26" column="20" selection-start-line="26" selection-start-column="20" selection-end-line="26" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="theme.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/libsync/theme.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="390">
+              <caret line="26" column="17" selection-start-line="26" selection-start-column="17" selection-end-line="26" selection-end-column="17" />
+              <folding>
+                <element signature="e#795#980#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="owncloudtheme.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/libsync/owncloudtheme.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="200">
+              <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="create_mac.sh" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/admin/osx/create_mac.sh">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="375">
+              <caret line="25" column="19" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="theme.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/libsync/theme.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1770">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="owncloudtheme.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/libsync/owncloudtheme.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="14" column="16" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/libsync/owncloudtheme.cpp" />
+        <option value="$PROJECT_DIR$/src/libsync/owncloudtheme.h" />
+        <option value="$PROJECT_DIR$/admin/osx/create_mac.sh" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="y" value="23" />
+    <option name="width" value="1280" />
+    <option name="height" value="1349" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cloudbag-client" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$MyProjectTreeStructure$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cloudbag-client" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$MyProjectTreeStructure$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cloudbag-client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cloudbag-client" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$MyProjectTreeStructure$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cloudbag-client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cloudbag-client" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$MyProjectTreeStructure$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cloudbag-client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cloudbag-client" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$MyProjectTreeStructure$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cloudbag-client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="osx" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" PASS_PARENT_ENVS_2="true" TEST_MODE="SUITE_TEST">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="cloudbag-client" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="Tox" factoryName="Tox">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="cloudbag-client" />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run-script" />
+      <scripts />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Attests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="cloudbag-client" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Doctests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="cloudbag-client" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Nosetests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="cloudbag-client" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="PARAMS" value="" />
+      <option name="USE_PARAM" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Unittests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="cloudbag-client" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="PUREUNITTEST" value="true" />
+      <option name="PARAMS" value="" />
+      <option name="USE_PARAM" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="py.test">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="cloudbag-client" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="testToRun" value="" />
+      <option name="keywords" value="" />
+      <option name="params" value="" />
+      <option name="USE_PARAM" value="false" />
+      <option name="USE_KEYWORD" value="false" />
+      <method />
+    </configuration>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="eb3f257c-53c2-412f-adfa-297a030351f2" name="Default" comment="" />
+      <created>1466781565346</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1466781565346</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="23" width="1280" height="1349" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3296875" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Translations/client_it.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="258">
+          <caret line="2361" column="41" selection-start-line="2361" selection-start-column="33" selection-end-line="2361" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/OWNCLOUD.cmake">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/owncloudsetupwizard.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/owncloudgui.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1665">
+          <caret line="26" column="20" selection-start-line="26" selection-start-column="20" selection-end-line="26" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/libsync/theme.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="26" column="17" selection-start-line="26" selection-start-column="17" selection-end-line="26" selection-end-column="17" />
+          <folding>
+            <element signature="e#795#980#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/libsync/theme.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1770">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/libsync/owncloudtheme.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="16" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/libsync/owncloudtheme.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/osx/create_mac.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="19" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

@@ -16,6 +16,7 @@
 
 #include "accountfwd.h"
 #include "sharee.h"
+#include "sharepermissions.h"
 
 #include <QObject>
 #include <QDate>
@@ -43,18 +44,7 @@ public:
         TypeRemote = Sharee::Federated
     };
 
-    /**
-     * Possible permissions
-     */
-    enum Permission {
-        PermissionRead   =  1,
-        PermissionUpdate =  2,
-        PermissionCreate =  4,
-        PermissionDelete =  8,
-        PermissionShare  = 16,
-        PermissionDefault = 1 << 30
-    };
-    Q_DECLARE_FLAGS(Permissions, Permission)
+    typedef SharePermissions Permissions;
 
     /*
      * Constructor for shares
@@ -63,7 +53,7 @@ public:
                    const QString& id,
                    const QString& path,
                    const ShareType shareType,
-                   const Permissions permissions = PermissionDefault,
+                   const Permissions permissions = SharePermissionDefault,
                    const QSharedPointer<Sharee> shareWith = QSharedPointer<Sharee>(NULL));
 
     /**
@@ -195,18 +185,19 @@ signals:
     void expireDateSet();
     void publicUploadSet();
     void passwordSet();
+    void passwordSetError(int statusCode, const QString &message);
 
 private slots:
     void slotPasswordSet(const QVariantMap&, const QVariant &value);
     void slotPublicUploadSet(const QVariantMap&, const QVariant &value);
-    void slotExpireDateSet(const QVariantMap&, const QVariant &value);
+    void slotExpireDateSet(const QVariantMap& reply, const QVariant &value);
+    void slotSetPasswordError(int statusCode, const QString &message);
 
 private:
     bool _passwordSet;
     QDate _expireDate;
     QUrl _url;
 };
-Q_DECLARE_OPERATORS_FOR_FLAGS(Share::Permissions)
 
 /**
  * The share manager allows for creating, retrieving and deletion
@@ -259,20 +250,29 @@ public:
 signals:
     void shareCreated(const QSharedPointer<Share> &share);
     void linkShareCreated(const QSharedPointer<LinkShare> &share);
-    void linkShareRequiresPassword();
     void sharesFetched(const QList<QSharedPointer<Share>> &shares);
     void serverError(int code, const QString &message);
+
+    /** Emitted when creating a link share with password fails.
+     *
+     * @param message the error message reported by the server
+     *
+     * See createLinkShare().
+     */
+    void linkShareRequiresPassword(const QString &message);
 
 private slots:
     void slotSharesFetched(const QVariantMap &reply);
     void slotLinkShareCreated(const QVariantMap &reply);
     void slotShareCreated(const QVariantMap &reply);
     void slotOcsError(int statusCode, const QString &message);
+    void slotCreateShare(const QVariantMap &reply);
 
 private:
     QSharedPointer<LinkShare> parseLinkShare(const QVariantMap &data);
     QSharedPointer<Share> parseShare(const QVariantMap &data);
 
+    QMap<QObject*, QVariant> _jobContinuation;
     AccountPtr _account;
 };
 

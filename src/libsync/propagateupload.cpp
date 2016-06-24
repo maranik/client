@@ -24,6 +24,7 @@
 #include "propagatorjobs.h"
 #include "checksums.h"
 #include "syncengine.h"
+#include "propagateremotedelete.h"
 
 #include <json.h>
 #include <QNetworkAccessManager>
@@ -57,17 +58,6 @@ static bool fileIsStillChanging(const SyncFileItem & item)
     return msSinceMod < SyncEngine::minimumFileAgeForUpload
             // if the mtime is too much in the future we *do* upload the file
             && msSinceMod > -10000;
-}
-
-static qint64 chunkSize() {
-    static uint chunkSize;
-    if (!chunkSize) {
-        chunkSize = qgetenv("OWNCLOUD_CHUNK_SIZE").toUInt();
-        if (chunkSize == 0) {
-            chunkSize = 5*1024*1024; // default to 5 MiB
-        }
-    }
-    return chunkSize;
 }
 
 PUTFileJob::~PUTFileJob()
@@ -198,14 +188,25 @@ void PropagateUploadFileQNAM::start()
         return;
     }
 
-    if (_propagator->account()->serverVersionInt() < 0x080100) {
-        // Server version older than 8.1 don't support these character in filename.
-        static const QRegExp invalidCharRx("[\\\\:?*\"<>|]");
-        if (_item->_file.contains(invalidCharRx)) {
-            _item->_httpErrorCode = 400; // So the entry get blacklisted
-            done(SyncFileItem::NormalError, tr("File name contains at least one invalid character"));
-            return;
-        }
+    _propagator->_activeJobList.append(this);
+
+    if (!_deleteExisting) {
+        return slotComputeContentChecksum();
+    }
+
+    auto job = new DeleteJob(_propagator->account(),
+                             _propagator->_remoteFolder + _item->_file,
+                             this);
+    _jobs.append(job);
+    connect(job, SIGNAL(finishedSignal()), SLOT(slotComputeContentChecksum()));
+    connect(job, SIGNAL(destroyed(QObject*)), SLOT(slotJobDestroyed(QObject*)));
+    job->start();
+}
+
+void PropagateUploadFileQNAM::slotComputeContentChecksum()
+{
+    if (_propagator->_abortRequested.fetchAndAddRelaxed(0)) {
+        return;
     }
 
     const QString filePath = _propagator->getFilePath(_item->_file);
@@ -216,27 +217,27 @@ void PropagateUploadFileQNAM::start()
 
     _stopWatch.start();
 
-    QByteArray contentChecksumType;
-    // We currently only do content checksums for the particular .eml case
-    // This should be done more generally in the future!
-    if (filePath.endsWith(QLatin1String(".eml"), Qt::CaseInsensitive)) {
-        contentChecksumType = "MD5";
-    }
+    QByteArray checksumType = contentChecksumType();
 
     // Maybe the discovery already computed the checksum?
-    if (_item->_contentChecksumType == contentChecksumType
+    if (_item->_contentChecksumType == checksumType
             && !_item->_contentChecksum.isEmpty()) {
-        slotComputeTransmissionChecksum(contentChecksumType, _item->_contentChecksum);
+        slotComputeTransmissionChecksum(checksumType, _item->_contentChecksum);
         return;
     }
 
     // Compute the content checksum.
     auto computeChecksum = new ComputeChecksum(this);
-    computeChecksum->setChecksumType(contentChecksumType);
+    computeChecksum->setChecksumType(checksumType);
 
     connect(computeChecksum, SIGNAL(done(QByteArray,QByteArray)),
             SLOT(slotComputeTransmissionChecksum(QByteArray,QByteArray)));
     computeChecksum->start(filePath);
+}
+
+void PropagateUploadFileQNAM::setDeleteExisting(bool enabled)
+{
+    _deleteExisting = enabled;
 }
 
 void PropagateUploadFileQNAM::slotComputeTransmissionChecksum(const QByteArray& contentChecksumType, const QByteArray& contentChecksum)
@@ -258,7 +259,7 @@ void PropagateUploadFileQNAM::slotComputeTransmissionChecksum(const QByteArray& 
     // Compute the transmission checksum.
     auto computeChecksum = new ComputeChecksum(this);
     if (uploadChecksumEnabled()) {
-        computeChecksum->setChecksumType(_propagator->account()->capabilities().preferredChecksumType());
+        computeChecksum->setChecksumType(_propagator->account()->capabilities().uploadChecksumType());
     } else {
         computeChecksum->setChecksumType(QByteArray());
     }
@@ -271,8 +272,18 @@ void PropagateUploadFileQNAM::slotComputeTransmissionChecksum(const QByteArray& 
 
 void PropagateUploadFileQNAM::slotStartUpload(const QByteArray& transmissionChecksumType, const QByteArray& transmissionChecksum)
 {
+    // Remove ourselfs from the list of active job, before any posible call to done()
+    // When we start chunks, we will add it again, once for every chunks.
+    _propagator->_activeJobList.removeOne(this);
+
     _transmissionChecksum = transmissionChecksum;
     _transmissionChecksumType = transmissionChecksumType;
+
+    if (_item->_contentChecksum.isEmpty() && _item->_contentChecksumType.isEmpty())  {
+        // If the _contentChecksum was not set, reuse the transmission checksum as the content checksum.
+        _item->_contentChecksum = transmissionChecksum;
+        _item->_contentChecksumType = transmissionChecksumType;
+    }
 
     const QString fullFilePath = _propagator->getFilePath(_item->_file);
 
@@ -389,7 +400,7 @@ qint64 UploadDevice::readData(char* data, qint64 maxlen) {
     if (isBandwidthLimited()) {
         maxlen = qMin(maxlen, _bandwidthQuota);
         if (maxlen <= 0) {  // no quota
-            qDebug() << "no quota";
+            //qDebug() << "no quota";
             return 0;
         }
         _bandwidthQuota -= maxlen;
@@ -491,8 +502,10 @@ void PropagateUploadFileQNAM::startNextChunk()
         headers["OC-Tag"] = ".sys.admin#recall#";
     }
 
-    if (!_item->_etag.isEmpty() && _item->_etag != "empty_etag" &&
-            _item->_instruction != CSYNC_INSTRUCTION_NEW  // On new files never send a If-Match
+    if (!_item->_etag.isEmpty() && _item->_etag != "empty_etag"
+            && _item->_instruction != CSYNC_INSTRUCTION_NEW  // On new files never send a If-Match
+            && _item->_instruction != CSYNC_INSTRUCTION_TYPE_CHANGE
+            && !_deleteExisting
             ) {
         // We add quotes because the owncloud server always adds quotes around the etag, and
         //  csync_owncloud.c's owncloud_file_id always strips the quotes.
@@ -533,8 +546,16 @@ void PropagateUploadFileQNAM::startNextChunk()
                 _transmissionChecksumType, _transmissionChecksum);
     }
 
-    if (! device->prepareAndOpen(_propagator->getFilePath(_item->_file), chunkStart, currentChunkSize)) {
+    const QString fileName = _propagator->getFilePath(_item->_file);
+    if (! device->prepareAndOpen(fileName, chunkStart, currentChunkSize)) {
         qDebug() << "ERR: Could not prepare upload device: " << device->errorString();
+
+        // If the file is currently locked, we want to retry the sync
+        // when it becomes available again.
+        if (FileSystem::isFileLocked(fileName)) {
+            emit _propagator->seenLockedFile(fileName);
+        }
+
         // Soft error because this is likely caused by the user modifying his files while syncing
         abortWithError( SyncFileItem::SoftError, device->errorString() );
         delete device;
@@ -549,7 +570,7 @@ void PropagateUploadFileQNAM::startNextChunk()
     connect(job, SIGNAL(uploadProgress(qint64,qint64)), device, SLOT(slotJobUploadProgress(qint64,qint64)));
     connect(job, SIGNAL(destroyed(QObject*)), this, SLOT(slotJobDestroyed(QObject*)));
     job->start();
-    _propagator->_activeJobs++;
+    _propagator->_activeJobList.append(this);
     _currentChunk++;
 
     bool parallelChunkUpload = true;
@@ -571,7 +592,7 @@ void PropagateUploadFileQNAM::startNextChunk()
         parallelChunkUpload = false;
     }
 
-    if (parallelChunkUpload && (_propagator->_activeJobs < _propagator->maximumActiveJob())
+    if (parallelChunkUpload && (_propagator->_activeJobList.count() < _propagator->maximumActiveJob())
             && _currentChunk < _chunkCount ) {
         startNextChunk();
     }
@@ -592,7 +613,7 @@ void PropagateUploadFileQNAM::slotPutFinished()
              << job->reply()->attribute(QNetworkRequest::HttpStatusCodeAttribute)
              << job->reply()->attribute(QNetworkRequest::HttpReasonPhraseAttribute);
 
-    _propagator->_activeJobs--;
+    _propagator->_activeJobList.removeOne(this);
 
     if (_finished) {
         // We have sent the finished signal already. We don't need to handle any remaining jobs
@@ -710,7 +731,9 @@ void PropagateUploadFileQNAM::slotPutFinished()
         auto currentChunk = job->_chunk;
         foreach (auto *job, _jobs) {
             // Take the minimum finished one
-            currentChunk = qMin(currentChunk, job->_chunk - 1);
+            if (auto putJob = qobject_cast<PUTFileJob*>(job)) {
+                currentChunk = qMin(currentChunk, putJob->_chunk - 1);
+            }
         }
         pi._chunk = (currentChunk + _startChunk + 1) % _chunkCount ; // next chunk to start with
         pi._transferid = _transferId;
@@ -763,12 +786,16 @@ void PropagateUploadFileQNAM::finalize(const SyncFileItem &copy)
 
     _item->_requestDuration = _duration.elapsed();
 
-    _propagator->_journal->setFileRecord(SyncJournalFileRecord(*_item, _propagator->getFilePath(_item->_file)));
+    _finished = true;
+
+    if (!_propagator->_journal->setFileRecord(SyncJournalFileRecord(*_item, _propagator->getFilePath(_item->_file)))) {
+        done(SyncFileItem::FatalError, tr("Error writing metadata to the database"));
+        return;
+    }
     // Remove from the progress database:
     _propagator->_journal->setUploadInfo(_item->_file, SyncJournalDb::UploadInfo());
     _propagator->_journal->commit("upload file start");
 
-    _finished = true;
     done(SyncFileItem::Success);
 }
 
@@ -816,7 +843,7 @@ void PropagateUploadFileQNAM::startPollJob(const QString& path)
     info._modtime = _item->_modtime;
     _propagator->_journal->setPollInfo(info);
     _propagator->_journal->commit("add poll info");
-    _propagator->_activeJobs++;
+    _propagator->_activeJobList.append(this);
     job->start();
 }
 
@@ -825,7 +852,7 @@ void PropagateUploadFileQNAM::slotPollFinished()
     PollJob *job = qobject_cast<PollJob *>(sender());
     Q_ASSERT(job);
 
-    _propagator->_activeJobs--;
+    _propagator->_activeJobList.removeOne(this);
 
     if (job->_item->_status != SyncFileItem::Success) {
         _finished = true;

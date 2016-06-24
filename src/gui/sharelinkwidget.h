@@ -16,6 +16,7 @@
 #define SHARELINKWIDGET_H
 
 #include "accountfwd.h"
+#include "sharepermissions.h"
 #include "QProgressIndicator.h"
 #include <QDialog>
 #include <QVariantMap>
@@ -47,7 +48,7 @@ public:
     explicit ShareLinkWidget(AccountPtr account,
                              const QString &sharePath,
                              const QString &localPath,
-                             bool resharingAllowed,
+                             SharePermissions maxSharingPermissions,
                              bool autoShare = false,
                              QWidget *parent = 0);
     ~ShareLinkWidget();
@@ -56,7 +57,7 @@ public:
 private slots:
     void slotSharesFetched(const QList<QSharedPointer<Share>> &shares);
     void slotCreateShareFetched(const QSharedPointer<LinkShare> share);
-    void slotCreateShareRequiresPassword();
+    void slotCreateShareRequiresPassword(const QString& message);
     void slotDeleteShareFetched();
     void slotPasswordSet();
     void slotExpireSet();
@@ -70,11 +71,11 @@ private slots:
     void slotCheckBoxEditingClicked();
     void slotPublicUploadSet();
 
-    void displayError(int code, const QString &message);
+    void slotServerError(int code, const QString &message);
+    void slotPasswordSetError(int code, const QString &message);
 
 private:
     void setShareCheckBoxTitle(bool haveShares);
-    void displayError(int code);
     void displayError(const QString& errMsg);
     void setShareLink( const QString& url );
     void resizeEvent(QResizeEvent *e);
@@ -104,7 +105,7 @@ private:
     ShareManager *_manager;
     QSharedPointer<LinkShare> _share;
 
-    bool _resharingAllowed;
+    SharePermissions _maxSharingPermissions;
     bool _isFile;
     bool _autoShare;
     bool _passwordRequired;

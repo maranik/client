@@ -106,6 +106,42 @@ static bool _last_db_return_error(CSYNC* ctx) {
     return ctx->statedb.lastReturnValue != SQLITE_OK && ctx->statedb.lastReturnValue != SQLITE_DONE && ctx->statedb.lastReturnValue != SQLITE_ROW;
 }
 
+/*
+ * This static method is needed because the type members of the two structs use
+ * different enum values. A direct comparion is not neccessarily correct.
+ *
+ * tmp is csync_file_stat_t
+ * fs  is csync_vio_file_stat_t with this vio type:
+ *  enum csync_vio_file_type_e {
+ *              CSYNC_VIO_FILE_TYPE_UNKNOWN,
+ *              CSYNC_VIO_FILE_TYPE_REGULAR,
+ *              CSYNC_VIO_FILE_TYPE_DIRECTORY,
+ *              CSYNC_VIO_FILE_TYPE_FIFO,
+ *              CSYNC_VIO_FILE_TYPE_SOCKET,
+ *              CSYNC_VIO_FILE_TYPE_CHARACTER_DEVICE,
+ *              CSYNC_VIO_FILE_TYPE_BLOCK_DEVICE,
+ *              CSYNC_VIO_FILE_TYPE_SYMBOLIC_LINK
+ *            };
+ *
+ * csync_file_stat_t can be:
+ * CSYNC_FTW_TYPE_SKIP, CSYNC_FTW_TYPE_FILE
+ * CSYNC_FTW_TYPE_DIR, CSYNC_FTW_TYPE_SLINK
+ */
+static bool _csync_filetype_different( const csync_file_stat_t *tmp, const csync_vio_file_stat_t *fs)
+{
+    if( !(tmp && fs)) return false;
+
+    if( tmp->type == CSYNC_FTW_TYPE_SKIP ) return true;
+
+    if( tmp->type == CSYNC_FTW_TYPE_DIR && fs->type != CSYNC_VIO_FILE_TYPE_DIRECTORY )
+        return true;
+    if( tmp->type == CSYNC_FTW_TYPE_FILE && fs->type != CSYNC_VIO_FILE_TYPE_REGULAR )
+        return true;
+    if( tmp->type == CSYNC_FTW_TYPE_SLINK && fs->type != CSYNC_VIO_FILE_TYPE_SYMBOLIC_LINK )
+        return true;
+
+    return false; // both are NOT different.
+}
 
 /* Return true if two mtime are considered equal
  * We consider mtime that are one hour difference to be equal if they are one hour appart
@@ -209,33 +245,9 @@ static int _csync_detect_update(CSYNC *ctx, const char *file,
   st->etag = NULL;
   st->child_modified = 0;
   st->has_ignored_files = 0;
-
-  /* FIXME: Under which conditions are the following two ifs true and the code
-   * is executed? */
   if (type == CSYNC_FTW_TYPE_FILE ) {
     if (fs->mtime == 0) {
       CSYNC_LOG(CSYNC_LOG_PRIORITY_TRACE, "file: %s - mtime is zero!", path);
-
-      tmp = csync_statedb_get_stat_by_hash(ctx, h);
-      if(_last_db_return_error(ctx)) {
-          SAFE_FREE(st);
-          SAFE_FREE(tmp);
-          ctx->status_code = CSYNC_STATUS_UNSUCCESSFUL;
-          return -1;
-      }
-
-      if (tmp == NULL) {
-        CSYNC_LOG(CSYNC_LOG_PRIORITY_TRACE, "file: %s - not found in db, IGNORE!", path);
-        st->instruction = CSYNC_INSTRUCTION_IGNORE;
-      } else {
-        SAFE_FREE(st);
-        st = tmp;
-        st->instruction = CSYNC_INSTRUCTION_NONE;
-        CSYNC_LOG(CSYNC_LOG_PRIORITY_TRACE, "file: %s - tmp non zero, mtime %lu", path, st->modtime );
-        tmp = NULL;
-      }
-      goto fastout; /* Skip copying of the etag. That's an important difference to upstream
-                     * without etags. */
     }
   }
 
@@ -258,6 +270,7 @@ static int _csync_detect_update(CSYNC *ctx, const char *file,
 
     if(_last_db_return_error(ctx)) {
         SAFE_FREE(st);
+        SAFE_FREE(tmp);
         ctx->status_code = CSYNC_STATUS_UNSUCCESSFUL;
         return -1;
     }
@@ -272,6 +285,12 @@ static int _csync_detect_update(CSYNC *ctx, const char *file,
                   (uint64_t) fs->size, (uint64_t) tmp->size, fs->remotePerm, tmp->remotePerm, tmp->has_ignored_files );
         if (ctx->current == REMOTE_REPLICA && !c_streq(fs->etag, tmp->etag)) {
             st->instruction = CSYNC_INSTRUCTION_EVAL;
+
+            // Preserve the EVAL flag later on if the type has changed.
+            if (_csync_filetype_different(tmp, fs)) {
+                st->child_modified = 1;
+            }
+
             goto out;
         }
         if (ctx->current == LOCAL_REPLICA &&
@@ -279,7 +298,10 @@ static int _csync_detect_update(CSYNC *ctx, const char *file,
                  // zero size in statedb can happen during migration
                  || (tmp->size != 0 && fs->size != tmp->size))) {
 
-            if (fs->size == tmp->size && tmp->checksumTypeId) {
+            // Checksum comparison at this stage is only enabled for .eml files,
+            // check #4754 #4755
+            bool isEmlFile = csync_fnmatch("*.eml", file, FNM_CASEFOLD) == 0;
+            if (isEmlFile && fs->size == tmp->size && tmp->checksumTypeId) {
                 if (ctx->callbacks.checksum_hook) {
                     st->checksum = ctx->callbacks.checksum_hook(
                                 file, tmp->checksumTypeId,
@@ -291,11 +313,18 @@ static int _csync_detect_update(CSYNC *ctx, const char *file,
                     checksumIdentical = strncmp(st->checksum, tmp->checksum, 1000) == 0;
                 }
                 if (checksumIdentical) {
+                    CSYNC_LOG(CSYNC_LOG_PRIORITY_TRACE, "NOTE: Checksums are identical, file did not actually change: %s", path);
                     st->instruction = CSYNC_INSTRUCTION_NONE;
                     st->should_update_metadata = true;
                     goto out;
                 }
             }
+
+            // Preserve the EVAL flag later on if the type has changed.
+            if (_csync_filetype_different(tmp, fs)) {
+                st->child_modified = 1;
+            }
+
             st->instruction = CSYNC_INSTRUCTION_EVAL;
             goto out;
         }
@@ -343,32 +372,51 @@ static int _csync_detect_update(CSYNC *ctx, const char *file,
             }
 
             /* translate the file type between the two stat types csync has. */
-            if( tmp && tmp->type == 0 ) {
+            if( tmp && tmp->type == CSYNC_FTW_TYPE_FILE ) {
                 tmp_vio_type = CSYNC_VIO_FILE_TYPE_REGULAR;
-            } else if( tmp && tmp->type == 2 ) {
+            } else if( tmp && tmp->type == CSYNC_FTW_TYPE_DIR) {
                 tmp_vio_type = CSYNC_VIO_FILE_TYPE_DIRECTORY;
+            } else if( tmp && tmp->type == CSYNC_FTW_TYPE_SLINK ) {
+                tmp_vio_type = CSYNC_VIO_FILE_TYPE_SYMBOLIC_LINK;
             } else {
                 tmp_vio_type = CSYNC_VIO_FILE_TYPE_UNKNOWN;
             }
 
-            if (tmp && tmp->inode == fs->inode && tmp_vio_type == fs->type
+            // Default to NEW unless we're sure it's a rename.
+            st->instruction = CSYNC_INSTRUCTION_NEW;
+
+            bool isRename =
+                tmp && tmp->inode == fs->inode && tmp_vio_type == fs->type
                     && (tmp->modtime == fs->mtime || fs->type == CSYNC_VIO_FILE_TYPE_DIRECTORY)
 #ifdef NO_RENAME_EXTENSION
                     && _csync_sameextension(tmp->path, path)
 #endif
-               ) {
+                ;
+
+
+            // Verify the checksum where possible
+            if (isRename && tmp->checksumTypeId && ctx->callbacks.checksum_hook
+                    && fs->type == CSYNC_VIO_FILE_TYPE_REGULAR) {
+                st->checksum = ctx->callbacks.checksum_hook(
+                            file, tmp->checksumTypeId,
+                            ctx->callbacks.checksum_userdata);
+                if (st->checksum) {
+                    CSYNC_LOG(CSYNC_LOG_PRIORITY_TRACE, "checking checksum of potential rename %s %s <-> %s", path, st->checksum, tmp->checksum);
+                    st->checksumTypeId = tmp->checksumTypeId;
+                    isRename = strncmp(st->checksum, tmp->checksum, 1000) == 0;
+                }
+            }
+
+            if (isRename) {
                 CSYNC_LOG(CSYNC_LOG_PRIORITY_TRACE, "pot rename detected based on inode # %" PRId64 "", (uint64_t) fs->inode);
                 /* inode found so the file has been renamed */
                 st->instruction = CSYNC_INSTRUCTION_EVAL_RENAME;
                 if (fs->type == CSYNC_VIO_FILE_TYPE_DIRECTORY) {
                     csync_rename_record(ctx, tmp->path, path);
                 }
-                goto out;
-            } else {
-                /* file not found in statedb */
-                st->instruction = CSYNC_INSTRUCTION_NEW;
-                goto out;
             }
+            goto out;
+
         } else {
             /* Remote Replica Rename check */
             tmp = csync_statedb_get_stat_by_file_id(ctx, fs->file_id);
@@ -379,8 +427,7 @@ static int _csync_detect_update(CSYNC *ctx, const char *file,
                 return -1;
             }
             if(tmp ) {                           /* tmp existing at all */
-                if ((tmp->type == CSYNC_FTW_TYPE_DIR && fs->type != CSYNC_VIO_FILE_TYPE_DIRECTORY) ||
-                        (tmp->type == CSYNC_FTW_TYPE_FILE && fs->type != CSYNC_VIO_FILE_TYPE_REGULAR)) {
+                if ( _csync_filetype_different(tmp, fs)) {
                     CSYNC_LOG(CSYNC_LOG_PRIORITY_DEBUG, "WARN: file types different is not!");
                     st->instruction = CSYNC_INSTRUCTION_NEW;
                     goto out;
@@ -469,7 +516,6 @@ out:
       strncpy(st->remotePerm, fs->remotePerm, REMOTE_PERM_BUF_SIZE);
   }
 
-fastout:  /* target if the file information is read from database into st */
   st->phash = h;
   st->pathlen = len;
   memcpy(st->path, (len ? path : ""), len + 1);
@@ -514,7 +560,11 @@ int csync_walker(CSYNC *ctx, const char *file, const csync_vio_file_stat_t *fs,
   switch (flag) {
     case CSYNC_FTW_FLAG_FILE:
       if (ctx->current == REMOTE_REPLICA) {
-        CSYNC_LOG(CSYNC_LOG_PRIORITY_TRACE, "file: %s [file_id=%s size=%" PRIu64 "]", file, fs->file_id, fs->size);
+          if (fs->fields & CSYNC_VIO_FILE_STAT_FIELDS_SIZE) {
+              CSYNC_LOG(CSYNC_LOG_PRIORITY_TRACE, "file: %s [file_id=%s size=%" PRIu64 "]", file, fs->file_id, fs->size);
+          } else {
+              CSYNC_LOG(CSYNC_LOG_PRIORITY_TRACE, "file: %s [file_id=%s size=UNKNOWN]", file, fs->file_id);
+          }
       } else {
           CSYNC_LOG(CSYNC_LOG_PRIORITY_TRACE, "file: %s [inode=%" PRIu64 " size=%" PRIu64 "]", file, fs->inode, fs->size);
       }
@@ -771,7 +821,9 @@ int csync_ftw(CSYNC *ctx, const char *uri, csync_walker_fn fn,
      * local stat function.
      */
     if( d_name[0] == '.' ) {
-        dirent->flags |= CSYNC_VIO_FILE_FLAGS_HIDDEN;
+        if (strcmp(".sys.admin#recall#", d_name) != 0) { /* recall file shall not be ignored (#4420) */
+            dirent->flags |= CSYNC_VIO_FILE_FLAGS_HIDDEN;
+        }
     }
 
     if( res == 0) {

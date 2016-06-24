@@ -60,11 +60,11 @@ protected:
 
 signals:
     void copyToClipboard();
+    void issueItemCountUpdated(int);
 
 private:
     void setSyncResultStatus(const SyncResult& result );
-    void cleanIgnoreItems( const QString& folder );
-    void computeResyncButtonEnabled();
+    void cleanItems( const QString& folder );
 
     QTreeWidgetItem* createCompletedTreewidgetItem(const QString &folder, const SyncFileItem &item );
 

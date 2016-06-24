@@ -63,6 +63,7 @@ void ShareeModel::fetch(const QString &search, const ShareeSet &blacklist)
     _shareeBlacklist = blacklist;
     OcsShareeJob *job = new OcsShareeJob(_account);
     connect(job, SIGNAL(shareeJobFinished(QVariantMap)), SLOT(shareesFetched(QVariantMap)));
+    connect(job, SIGNAL(ocsError(int,QString)), SIGNAL(displayErrorMessage(int,QString)));
     job->getSharees(_search, _type, 1, 50);
 }
 
@@ -196,11 +197,19 @@ QVariant ShareeModel::data(const QModelIndex &index, int role) const
         return QVariant();
     }
 
-    if (role == Qt::DisplayRole || role == Qt::EditRole) {
-        return _sharees.at(index.row())->format();
-    } 
-    if (role == Qt::UserRole) {
-        return QVariant::fromValue(_sharees.at(index.row()));
+    const auto & sharee = _sharees.at(index.row());
+    if (role == Qt::DisplayRole) {
+        return sharee->format();
+
+    } else if (role == Qt::EditRole) {
+        // This role is used by the completer - it should match
+        // the full name and the user name and thus we include both
+        // in the output here. But we need to take care this string
+        // doesn't leak to the user.
+        return QString(sharee->displayName() + " (" + sharee->shareWith() + ")");
+
+    } else if (role == Qt::UserRole) {
+        return QVariant::fromValue(sharee);
     }
     
     return QVariant();

@@ -76,7 +76,7 @@ void AbstractNetworkJob::setReply(QNetworkReply *reply)
 
 void AbstractNetworkJob::setTimeout(qint64 msec)
 {
-    qDebug() << Q_FUNC_INFO << msec;
+    //qDebug() << Q_FUNC_INFO << msec;
 
     _timer.start(msec);
 }
@@ -146,6 +146,11 @@ QNetworkReply *AbstractNetworkJob::headRequest(const QString &relPath)
 QNetworkReply *AbstractNetworkJob::headRequest(const QUrl &url)
 {
     return addTimer(_account->headRequest(url));
+}
+
+QNetworkReply *AbstractNetworkJob::deleteRequest(const QUrl &url)
+{
+    return addTimer(_account->deleteRequest(url));
 }
 
 void AbstractNetworkJob::slotFinished()
@@ -225,7 +230,8 @@ void AbstractNetworkJob::start()
     const QUrl url = account()->url();
     const QString displayUrl = QString( "%1://%2%3").arg(url.scheme()).arg(url.host()).arg(url.path());
 
-    qDebug() << "!!!" << metaObject()->className() << "created for" << displayUrl << "+" << path();
+    QString parentMetaObjectName = parent() ? parent()->metaObject()->className() : "";
+    qDebug() << "!!!" << metaObject()->className() << "created for" << displayUrl << "+" << path() << parentMetaObjectName;
 }
 
 void AbstractNetworkJob::slotTimeout()
@@ -236,6 +242,7 @@ void AbstractNetworkJob::slotTimeout()
         reply()->abort();
     } else {
         qDebug() << Q_FUNC_INFO << this << "Timeout reply was NULL";
+        deleteLater();
     }
 }
 
@@ -264,7 +271,7 @@ QString extractErrorMessage(const QByteArray& errorResponse)
     }
 
     QString exception;
-    while (!reader.atEnd() && reader.error() == QXmlStreamReader::NoError) {
+    while (!reader.atEnd() && !reader.hasError()) {
         reader.readNextStartElement();
         if (reader.name() == QLatin1String("message")) {
             QString message = reader.readElementText();

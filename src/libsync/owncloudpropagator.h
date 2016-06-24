@@ -73,16 +73,25 @@ public:
 
         /** Jobs can be run in parallel to this job */
         FullParallelism,
-        /** This job does not support parallelism, and no other job shall
-            be started until this one has finished */
+
+        /** No other job shall be started until this one has finished.
+            So this job is guaranteed to finish before any jobs below it
+            are executed. */
         WaitForFinished,
 
-        /** This job supports parallelism with other jobs in the same directory, but it should
-             not be parallelized with jobs in other directories  (typically a move operation) */
+        /** A job with this parallelism will allow later jobs to start and
+            run in parallel as long as they aren't PropagateDirectory jobs.
+            When the first directory job is encountered, no further jobs
+            will be started until this one is finished. */
         WaitForFinishedInParentDirectory
     };
 
     virtual JobParallelism parallelism() { return FullParallelism; }
+
+    /**
+     * For "small" jobs
+     */
+    virtual bool isLikelyFinishedQuickly() { return false; }
 
     /** The space that the running jobs need to complete but don't actually use yet.
      *
@@ -274,7 +283,6 @@ public:
             , _journal(progressDb)
             , _finishedEmited(false)
             , _bandwidthManager(this)
-            , _activeJobs(0)
             , _anotherSyncNeeded(false)
             , _account(account)
     { }
@@ -289,14 +297,20 @@ public:
 
     QAtomicInt _abortRequested; // boolean set by the main thread to abort.
 
-    /* The number of currently active jobs */
-    int _activeJobs;
+    /** The list of currently active jobs.
+        This list contains the jobs that are currently using ressources and is used purely to
+        know how many jobs there is currently running for the scheduler.
+        Jobs add themself to the list when they do an assynchronous operation.
+        Jobs can be several time on the list (example, when several chunks are uploaded in parallel)
+     */
+    QList<PropagateItemJob*> _activeJobList;
 
     /** We detected that another sync is required after this one */
     bool _anotherSyncNeeded;
 
     /* The maximum number of active jobs in parallel  */
     int maximumActiveJob();
+    int hardMaximumActiveJob();
 
     bool isInSharedDirectory(const QString& file);
     bool localFileNameClash(const QString& relfile);
@@ -312,6 +326,9 @@ public:
 
     // timeout in seconds
     static int httpTimeout();
+
+    /** returns the size of chunks in bytes  */
+    static quint64 chunkSize();
 
     /** Records that a file was touched by a job.
      *
@@ -339,6 +356,8 @@ public:
      */
     DiskSpaceResult diskSpaceCheck() const;
 
+
+
 private slots:
 
     /** Emit the finished signal and make sure it is only emitted once */
@@ -355,6 +374,9 @@ signals:
     void progress(const SyncFileItem&, quint64 bytes);
     void finished();
 
+    /** Emitted when propagation has problems with a locked file. */
+    void seenLockedFile(const QString &fileName);
+
 private:
 
     AccountPtr _account;
@@ -362,6 +384,12 @@ private:
     /** Stores the time since a job touched a file. */
     QHash<QString, QElapsedTimer> _touchedFiles;
     mutable QMutex _touchedFilesMutex;
+
+#if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
+    // access to signals which are protected in Qt4
+    friend class PropagateDownloadFileQNAM;
+    friend class PropagateUploadFileQNAM;
+#endif
 };
 
 

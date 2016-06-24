@@ -29,11 +29,13 @@ namespace OCC {
 class AccountState;
 class Account;
 
+typedef QExplicitlySharedDataPointer<AccountState> AccountStatePtr;
+
 /**
  * @brief Extra info about an ownCloud server account.
  * @ingroup gui
  */
-class AccountState : public QObject {
+class AccountState : public QObject, public QSharedData {
     Q_OBJECT
 public:
     enum State {
@@ -59,14 +61,25 @@ public:
         /// An error like invalid credentials where retrying won't help.
         ConfigurationError
     };
-    enum CredentialFetchMode { Interactive, NonInteractive };
 
     /// The actual current connectivity status.
     typedef ConnectionValidator::Status ConnectionStatus;
 
     /// Use the account as parent
-    AccountState(AccountPtr account);
+    explicit AccountState(AccountPtr account);
     ~AccountState();
+
+    /** Creates an account state from settings and an Account object.
+     *
+     * Use from AccountManager with a prepared QSettings object only.
+     */
+    static AccountState* loadFromSettings(AccountPtr account, QSettings& settings);
+
+    /** Writes account state information to settings.
+     *
+     * It does not write the Account data.
+     */
+    void writeToSettings(QSettings& settings);
 
     AccountPtr account() const;
 
@@ -91,7 +104,7 @@ public:
 
     /// Triggers a ping to the server to update state and
     /// connection status and errors.
-    void checkConnectivity(CredentialFetchMode credentialsFetchMode);
+    void checkConnectivity();
 
     /** Returns a new settings object for this account, already in the right groups. */
     std::unique_ptr<QSettings> settings();
@@ -114,6 +127,7 @@ private:
 
 signals:
     void stateChanged(int state);
+    void isConnectedChanged();
 
 protected Q_SLOTS:
     void slotConnectionValidatorResult(ConnectionValidator::Status status, const QStringList& errors);
@@ -127,7 +141,6 @@ private:
     ConnectionStatus _connectionStatus;
     QStringList _connectionErrors;
     bool _waitingForNewCredentials;
-    CredentialFetchMode _credentialsFetchMode;
     QElapsedTimer _timeSinceLastETagCheck;
     QPointer<ConnectionValidator> _connectionValidator;
 };
@@ -135,6 +148,6 @@ private:
 }
 
 Q_DECLARE_METATYPE(OCC::AccountState*)
-Q_DECLARE_METATYPE(QSharedPointer<OCC::AccountState>)
+Q_DECLARE_METATYPE(OCC::AccountStatePtr)
 
 #endif //ACCOUNTINFO_H

@@ -43,6 +43,7 @@ extern "C" {
 #include "csync.h"
 #include "vio/csync_vio_local.h"
 #include "std/c_path.h"
+#include "std/c_string.h"
 }
 
 namespace OCC {
@@ -310,6 +311,11 @@ bool FileSystem::uncheckedRenameReplace(const QString& originFileName,
     }
 
 #else //Q_OS_WIN
+    // You can not overwrite a read-only file on windows.
+    if (!QFileInfo(destinationFileName).isWritable()) {
+        setFileReadOnly(destinationFileName, false);
+    }
+
     BOOL ok;
     QString orig = longWinPath(originFileName);
     QString dest = longWinPath(destinationFileName);
@@ -414,7 +420,7 @@ static qint64 getSizeWithCsync(const QString& filename)
             && (stat->fields & CSYNC_VIO_FILE_STAT_FIELDS_SIZE)) {
         result = stat->size;
     } else {
-        qDebug() << "Could not get size time for" << filename << "with csync";
+        qDebug() << "Could not get size for" << filename << "with csync";
     }
     csync_vio_file_stat_destroy(stat);
     return result;
@@ -471,9 +477,10 @@ bool FileSystem::fileExists(const QString& filename, const QFileInfo& fileInfo)
 QString FileSystem::fileSystemForPath(const QString & path)
 {
     // See also QStorageInfo (Qt >=5.4) and GetVolumeInformationByHandleW (>= Vista)
-    QString drive = path.left(3);
-    if (! drive.endsWith(":\\"))
+    QString drive = path.left(2);
+    if (! drive.endsWith(":"))
         return QString();
+    drive.append('\\');
 
     const size_t fileSystemBufferSize = 4096;
     TCHAR fileSystemBuffer[fileSystemBufferSize];
@@ -542,5 +549,79 @@ QByteArray FileSystem::calcAdler32( const QString& filename )
     return QByteArray::number( adler, 16 );
 }
 #endif
+
+QString FileSystem::makeConflictFileName(const QString &fn, const QDateTime &dt)
+{
+    QString conflictFileName(fn);
+    // Add _conflict-XXXX  before the extension.
+    int dotLocation = conflictFileName.lastIndexOf('.');
+    // If no extension, add it at the end  (take care of cases like foo/.hidden or foo.bar/file)
+    if (dotLocation <= conflictFileName.lastIndexOf('/') + 1) {
+        dotLocation = conflictFileName.size();
+    }
+    QString timeString = dt.toString("yyyyMMdd-hhmmss");
+
+    // Additional marker
+    QByteArray conflictFileUserName = qgetenv("CSYNC_CONFLICT_FILE_USERNAME");
+    if (conflictFileUserName.isEmpty())
+        conflictFileName.insert(dotLocation, "_conflict-" + timeString);
+    else
+        conflictFileName.insert(dotLocation, "_conflict_" + QString::fromUtf8(conflictFileUserName)  + "-" + timeString);
+
+    return conflictFileName;
+}
+
+bool FileSystem::remove(const QString &fileName, QString *errorString)
+{
+#ifdef Q_OS_WIN
+    // You cannot delete a read-only file on windows, but we want to
+    // allow that.
+    if (!QFileInfo(fileName).isWritable()) {
+        setFileReadOnly(fileName, false);
+    }
+#endif
+    QFile f(fileName);
+    if (!f.remove()) {
+        if (errorString) {
+            *errorString = f.errorString();
+        }
+        return false;
+    }
+    return true;
+}
+
+bool FileSystem::isFileLocked(const QString& fileName)
+{
+#ifdef Q_OS_WIN
+    mbchar_t *wuri = c_utf8_path_to_locale(fileName.toUtf8());
+
+    // Check if file exists
+    DWORD attr = GetFileAttributesW(wuri);
+    if (attr != INVALID_FILE_ATTRIBUTES) {
+        // Try to open the file with as much access as possible..
+        HANDLE win_h = CreateFileW(
+                    wuri,
+                    GENERIC_READ | GENERIC_WRITE,
+                    FILE_SHARE_READ | FILE_SHARE_WRITE | FILE_SHARE_DELETE,
+                    NULL, OPEN_EXISTING,
+                    FILE_ATTRIBUTE_NORMAL | FILE_FLAG_BACKUP_SEMANTICS,
+                    NULL);
+
+        c_free_locale_string(wuri);
+        if (win_h == INVALID_HANDLE_VALUE) {
+            /* could not be opened, so locked? */
+            /* 32 == ERROR_SHARING_VIOLATION */
+            return true;
+        } else {
+            CloseHandle(win_h);
+        }
+    } else {
+        c_free_locale_string(wuri);
+    }
+#else
+    Q_UNUSED(fileName);
+#endif
+    return false;
+}
 
 } // namespace OCC

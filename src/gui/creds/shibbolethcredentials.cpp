@@ -28,6 +28,7 @@
 #include "account.h"
 #include "theme.h"
 #include "cookiejar.h"
+#include "owncloudgui.h"
 #include "syncengine.h"
 
 #include <keychain.h>
@@ -66,8 +67,13 @@ void ShibbolethCredentials::setAccount(Account* account)
 {
     AbstractCredentials::setAccount(account);
 
+    // This is for existing saved accounts.
+    if (_user.isEmpty()) {
+        _user = _account->credentialSetting(QLatin1String(userC)).toString();
+    }
+
     // When constructed with a cookie (by the wizard), we usually don't know the
-    // user name yet. Request it now.
+    // user name yet. Request it now from the server.
     if (_ready && _user.isEmpty()) {
         QTimer::singleShot(1234, this, SLOT(slotFetchUser()));
     }
@@ -269,9 +275,7 @@ void ShibbolethCredentials::slotReadJobDone(QKeychain::Job *job)
 void ShibbolethCredentials::showLoginWindow()
 {
     if (!_browser.isNull()) {
-        _browser->activateWindow();
-        _browser->raise();
-        // FIXME On OS X this does not raise properly
+        ownCloudGui::raiseDialog(_browser);
         return;
     }
 
@@ -286,7 +290,7 @@ void ShibbolethCredentials::showLoginWindow()
             this, SLOT(onShibbolethCookieReceived(QNetworkCookie)), Qt::QueuedConnection);
     connect(_browser, SIGNAL(rejected()), this, SLOT(slotBrowserRejected()));
 
-    _browser->show();
+    ownCloudGui::raiseDialog(_browser);
 }
 
 QList<QNetworkCookie> ShibbolethCredentials::accountCookies(Account* account)
